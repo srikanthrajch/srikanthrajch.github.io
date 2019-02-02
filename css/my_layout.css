@@ -1,0 +1,151 @@
+#publications {
+   background: #ebeeee;
+   padding-top: 48px;
+   padding-bottom: 32px;
+}
+#publications h1 {
+   font: 20px/24px 'opensans-semibold', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   text-align: center;
+   margin-bottom: 24px;
+   color: #95A3A3;
+}
+
+#publications hr {
+   width: 70%;
+   margin: 18px auto 24px auto;
+   border-color: #2F2D2E;
+   border-color: rgba(150, 150, 150, .9);
+}
+
+#publications a, #publications a:visited  { color: #11ABB0; }
+#publications a:hover, #publications a:focus { color: #7A7A7A; }
+
+/* Portfolio Content */
+#publications-wrapper 
+.columns { margin-bottom: 20px; }
+.publications-item .item-wrap {
+   background: #ebeeee;
+   overflow: hidden;
+   position: relative;
+	color: #111;
+   -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.publications-item .item-wrap a {
+   display: inline;
+   cursor: pointer;
+}
+
+/* popup modal: Taken form layout.css file */
+
+/* NEWS AND LINKS ENVIRONMENT*/
+#news {
+   background: #2B2B2B;
+   padding-top: 48px;
+   padding-bottom: 32px;
+}
+#news h1 {
+   font: 20px/24px 'opensans-semibold', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   text-align: center;
+   margin-bottom: 24px;
+   color: #95A3A3;
+}
+#news hr {
+   width: 70%;
+   margin: 18px auto 24px auto;
+   border-color: #2F2D2E;
+   border-color: rgba(150, 150, 150, .9);
+}
+/*	Blockquotes */
+#news blockquote {
+   margin: 0 0px 30px 0px;
+   padding-left: 0;
+   position: relative;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+}
+#news blockquote:before { content: none; }
+#news blockquote p {
+   font-family: 'librebaskerville-italic', serif;
+   padding: 0;
+   font-size: 14px;
+   line-height: 16px;
+   color: #fff
+}
+#news blockquote cite {
+   display: block;
+   font-size: 12px;
+   font-style: normal;
+   line-height: 18px;
+   color: #fff;
+}
+#news blockquote cite:before { content: "\2014 \0020"; }
+#news blockquote cite a,
+#news blockquote cite a:visited { color: #8B9798; border: none }
+
+/*Gallery Environment*/
+#gallery {
+   background: #1F1F1F no-repeat center center;
+   background-size: cover !important;
+	-webkit-background-size: cover !important;
+   background-attachment: fixed;
+   position: relative;
+   min-height: 200px;
+   width: 100%;      
+  	padding-top: 256px;
+   overflow: hidden;
+}
+#gallery .text-container {
+   padding-top: 256px;
+   padding-bottom: 66px;
+}
+#gallery h1 {
+   font: 18px/24px 'opensans-bold', sans-serif;   
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   color: #111;
+}
+#gallery h1 span { display: none; }
+#gallery .header-col { padding-top: 9px; }
+#gallery .header-col h1:before {
+   font-family: 'FontAwesome';
+   content: "\f10d";
+	padding-right: 10px;
+	font-size: 72px;
+   line-height: 72px;
+   text-align: left;
+   float: left;
+   color: #fff;
+}
+
+/*	Blockquotes */
+#gallery blockquote {
+   margin: 0 0px 30px 0px;
+   padding-left: 0;
+   position: relative;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+}
+#gallery blockquote:before { content: none; }
+#gallery blockquote p {
+   font-family: 'librebaskerville-italic', serif;
+   padding: 0;
+   font-size: 24px;
+   line-height: 48px;
+   color: #fff
+}
+#gallery blockquote cite {
+   display: block;
+   font-size: 12px;
+   font-style: normal;
+   line-height: 18px;
+   color: #fff;
+}
+#gallery blockquote cite:before { content: "\2014 \0020"; }
+#gallery blockquote cite a,
+#gallery blockquote cite a:visited { color: #8B9798; border: none }

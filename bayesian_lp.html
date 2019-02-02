@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Srikanth Raj Chetupalli | IISc</title>
+	<meta name="description" content="">
+	<meta name="author" content="sraj" >
+	
+	<!-- No image indexing-->
+	<meta name="robots" content="noimageindex">
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/bayeslplayout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+	
+	<script type="text/javascript">
+		function playaudio(source) {
+			var player=document.getElementById('audioplayer');
+			player.src=source;
+ 			player.load();
+ 			player.play();			
+		}
+	</script>
+
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG">
+    </script>
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home"> 	  
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+         <ul id="nav" class="nav">
+            <li class="current"><a href="index.html">Home</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+   </header> <!-- Header End -->
+
+
+	<section id="description">
+		<h2>Variational Bayes Estimation Approach to Multi-microphone Speech Dereverberation</h2>
+
+		<div class="row">
+				<div class="nine columns">
+				A speech signal propagating in an enclosure undergoes multiple reflections at the walls and rigid surfaces. 
+				The signal recorded using a microphone at any spatial position is due to the signal propagating directly 
+				from the source position to the microphone position, and reflections from the walls. Linear model of sound 
+				propagation describes the received signal at the microphone using an impulse response called the room impulse 
+				response. The components due to the direct path signal, and the first few orders of reflections appear as 
+				distinct impulses, where as higher order reflections appear as noise component with exponentially decaying 
+				envelope. Early reflection component, which comprises of the direct component and first few orders of 
+				reflections changes the timbre, hence the quality, of the signal. Intelligibility has little or no effect, and 
+				in some cases the early reflections add to intelligibility due to the increased perceived loudness. The late 
+				reflections, on the otherhand, smear the signal distorting the temporal modulations present in the natural 
+				speech, affecting intelligibility. Late reverberation suppression is, hence, desired for many speech 
+				communication applications.<br>
+				Multi channel linear prediction (MCLP) in short time Fourier transform (STFT) domain based approach is considered 
+				here. Late reverberation is modeled as the predictable part of the microphone signals, and the residual signal is 
+				considered as the desired early reflection signal.
+				<h3>Observation model</h3>
+					The observed signal at a microphone in a reverberant enclosure is modeled as the convolution 
+					of room impulse response with the source signal,					
+						$$x_m[n]=s[n] * h_m[n]$$
+				<h3>Signal model</h3>
+					STFT coefficients of are modeled as Gaussian random variables with time-dependent variance. 
+					The variance, being a positive quantity is modeled as a Gamma distributed random variable.				
+				</div>						
+		</div>
+
+		<br>
+	<section id="results">
+				
+		<h2>Speech Examples</h2>
+			<div>
+				<h3> Two Microphone Scenario</h3>			
+
+				<div class="row">							
+					<h5>Male speech</h5>
+					<div class="ten columns" >
+						<audio id="audioplayer"></audio>			
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/m.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+							<br>Clean Signal					
+						</div>
+						<div class="three columns" align="center">
+ 							<button onclick="playaudio('MCLPBayes/results_16_2/mejb1_sx387_mic_1_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>Reverberant Signal
+						</div>
+						<div class="three columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_2/mejb1_sx387_WPE_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>WPE Signal
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_2/mejb1_sx387_CGG_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>CGG	Signal				  							 					
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_2/mejb1_sx387_BayesAll_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>VBE Signal
+						</div>					
+					</div>																																	
+				</div>
+			
+				<div class="row">							
+					<h5>Female speech</h5>
+					<div class="ten columns" >
+						<audio id="audioplayer"></audio>			
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/f.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+							<br>Clean Signal					
+						</div>
+						<div class="three columns" align="center">
+ 							<button onclick="playaudio('MCLPBayes/results_16_2/fcjf0_si648_mic_1_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>Reverberant Signal
+						</div>
+						<div class="three columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_2/fcjf0_si648_WPE_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>WPE Signal
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_2/fcjf0_si648_CGG_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>CGG	Signal				  							 					
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_2/fcjf0_si648_BayesAll_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>VBE Signal
+						</div>					
+					</div>																																	
+				</div>																																									
+			</div>			
+			<!-- End of microphone case -->
+			
+			<div>
+				<h3> Four Microphone Scenario</h3>			
+
+				<div class="row">							
+					<h5>Male speech</h5>
+					<div class="ten columns" >
+						<audio id="audioplayer"></audio>			
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/m.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+							<br>Clean Signal					
+						</div>
+						<div class="three columns" align="center">
+ 							<button onclick="playaudio('MCLPBayes/results_16_4/mejb1_sx387_mic_1_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>Reverberant Signal
+						</div>
+						<div class="three columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_4/mejb1_sx387_WPE_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>WPE Signal
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_4/mejb1_sx387_CGG_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>CGG	Signal				  							 					
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_4/mejb1_sx387_BayesAll_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>VBE Signal
+						</div>					
+					</div>																																	
+				</div>
+			
+				<div class="row">							
+					<h5>Female speech</h5>
+					<div class="ten columns" >
+						<audio id="audioplayer"></audio>			
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/f.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+							<br>Clean Signal					
+						</div>
+						<div class="three columns" align="center">
+ 							<button onclick="playaudio('MCLPBayes/results_16_4/fcjf0_si648_mic_1_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>Reverberant Signal
+						</div>
+						<div class="three columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_4/fcjf0_si648_WPE_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>WPE Signal
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_4/fcjf0_si648_CGG_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>CGG	Signal				  							 					
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_16_4/fcjf0_si648_BayesAll_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>VBE Signal
+						</div>					
+					</div>																																	
+				</div>																																									
+			</div>			
+			<!-- End of microphone case -->
+			
+			<div>
+				<h3> Eight Microphone Scenario</h3>			
+
+				<div class="row">							
+					<h5>Male speech</h5>
+					<div class="ten columns" >
+						<audio id="audioplayer"></audio>			
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/m.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+							<br>Clean Signal					
+						</div>
+						<div class="three columns" align="center">
+ 							<button onclick="playaudio('MCLPBayes/results_8_8/mejb1_sx387_mic_1_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>Reverberant Signal
+						</div>
+						<div class="three columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_8_8/mejb1_sx387_WPE_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>WPE Signal
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_8_8/mejb1_sx387_CGG_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>CGG	Signal				  							 					
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_8_8/mejb1_sx387_BayesAll_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>VBE Signal
+						</div>					
+					</div>																																	
+				</div>
+			
+				<div class="row">							
+					<h5>Female speech</h5>
+					<div class="ten columns" >
+						<audio id="audioplayer"></audio>			
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/f.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+							<br>Clean Signal					
+						</div>
+						<div class="three columns" align="center">
+ 							<button onclick="playaudio('MCLPBayes/results_8_8/fcjf0_si648_mic_1_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>Reverberant Signal
+						</div>
+						<div class="three columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_8_8/fcjf0_si648_WPE_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>WPE Signal
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_8_8/fcjf0_si648_CGG_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>CGG	Signal				  							 					
+						</div>
+						<div class="two columns" align="center">
+							<button onclick="playaudio('MCLPBayes/results_8_8/fcjf0_si648_BayesAll_RIR_SimRoom2_far_AnglA.mp3')"><img src="MCLPBayes/speaker.png" alt="Play" width="50px" height="50px"></button>
+ 							<br>VBE Signal
+						</div>					
+					</div>																																	
+				</div>																																									
+			</div>			
+			<!-- End of microphone case -->						
+
+			
+	</section>
+
+
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="copyright">
+               <li>&copy; Copyright 2016 Srikanth</li>
+               <li>Template adapted from <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>   
+            </ul>
+         </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+      </div>
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/galleryinit.js"></script>
+
+</body>
+
+</html>

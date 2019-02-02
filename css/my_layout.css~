@@ -1,0 +1,86 @@
+#publications {
+   background: #ebeeee;
+   padding-top: 48px;
+   padding-bottom: 32px;
+}
+#publications h1 {
+   font: 20px/24px 'opensans-semibold', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   text-align: center;
+   margin-bottom: 24px;
+   color: #95A3A3;
+}
+
+#publications hr {
+   width: 70%;
+   margin: 18px auto 24px auto;
+   border-color: #2F2D2E;
+   border-color: rgba(150, 150, 150, .9);
+}
+/* Portfolio Content */
+#publications-wrapper 
+.columns { margin-bottom: 20px; }
+.publications-item .item-wrap {
+   background: #ebeeee;
+   overflow: hidden;
+   position: relative;
+	color: #111;
+   -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.publications-item .item-wrap a {
+   display: inline;
+   cursor: pointer;
+}
+
+/* popup modal: Taken form layout.css file */
+
+/* NEWS AND LINKS ENVIRONMENT*/
+#news {
+   background: #2B2B2B;
+   padding-top: 48px;
+   padding-bottom: 32px;
+}
+#news h1 {
+   font: 20px/24px 'opensans-semibold', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   text-align: center;
+   margin-bottom: 24px;
+   color: #95A3A3;
+}
+#news hr {
+   width: 70%;
+   margin: 18px auto 24px auto;
+   border-color: #2F2D2E;
+   border-color: rgba(150, 150, 150, .9);
+}
+/*	Blockquotes */
+#news blockquote {
+   margin: 0 0px 30px 0px;
+   padding-left: 0;
+   position: relative;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+}
+#news blockquote:before { content: none; }
+#news blockquote p {
+   font-family: 'librebaskerville-italic', serif;
+   padding: 0;
+   font-size: 16px;
+   line-height: 8px;
+   color: #fff
+}
+#news blockquote cite {
+   display: block;
+   font-size: 12px;
+   font-style: normal;
+   line-height: 18px;
+   color: #fff;
+}
+#news blockquote cite:before { content: "\2014 \0020"; }
+#news blockquote cite a,
+#news blockquote cite a:visited { color: #8B9798; border: none }
