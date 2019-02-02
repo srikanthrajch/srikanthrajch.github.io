@@ -63,7 +63,7 @@
 
 	<section id="description">
 		<h2>Late Reverberation Cancellation using Bayesian Estimation of Multi Channel Linear Predictors with Student's t Source Prior</h2>
-<!--
+
 		<div class="row">
 				<div class="nine columns">
 				A speech signal propagating in an enclosure undergoes multiple reflections at the walls and rigid surfaces. 
@@ -90,7 +90,7 @@
 					The variance, being a positive quantity is modeled as a Gamma distributed random variable.				
 				</div>						
 		</div>
--->
+
 		<br>
 	<section id="results">
 				
