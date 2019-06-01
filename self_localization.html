@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Srikanth Raj Chetupalli | IISc</title>
+	<meta name="description" content="">
+	<meta name="author" content="sraj" >
+	
+	<!-- No image indexing-->
+	<meta name="robots" content="noimageindex">
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/selfloclayout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+         <ul id="nav" class="nav">
+            <li class="current"><a href="index.html">Home</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+   </header> <!-- Header End -->
+
+
+	<section id="results">
+		<h1>LP Estimated Diffuse Signal Approach to Blind Microphone Geometry Calibration</h1>
+		<section id="methodDescription">  
+			<h3>Methodology</h3>
+			<div align=left>
+				<p>
+					<h6>Step-1</h6>
+					Reverberant speech signal is decomposed into the constituent early and late components. 
+					$$x_m[n]=x_{m,e}[n]+x_{m,l}[n],~\forall~m$$
+					Weighted prediction error (<a target="_blank" href="http://www.kecl.ntt.co.jp/icl/signal/wpe/">WPE</a>) method, which is 
+					typically used for speech deverberation is used for the signal decomposition. 
+					<h6>Step-2</h6>					
+					Late component exhibits diffuse noise properties, which has a distance cue. Spatial cross coherence 
+					function of the late part is used to estimate the microphone separation. 
+					<br>Spatial cross coherence function is computed as,
+					$$ \Gamma_{ij}[k]=\frac{\mathbb{E}\{X_{i,l}[k]X_{j,l}^*[k]\}}{\sqrt{\mathbb{E}\{|X_{i,l}[k]|^2\}\mathbb{E}\{|X_{j,l}[k]|^2\} }}$$
+					where \(X_{i,l}[k]\) is the Fourier transform of \(x_{i,l}[n]\).
+					For a spherically isotropic diffuse noise field,
+					$$ \Gamma_{ij}^s[k]=sinc \left (\frac{2\pi k f_s d_{ij}}{Kc} \right )$$
+					\(\Gamma_{ij}[k]\) is matched against \(\Gamma_{ij}^s[k]\) for the estimation of distance between microphone pair \(i,j\)
+					$$d_{ij}=\underset{d_{ij}}{\arg\min}~\sum_{k=0}^{K/2} |\Gamma_{ij}[k]-\Gamma_{ij}^s[k]|^2 $$
+					<h6>Step-3</h6>
+					Given estimates of distances between all pairs of microphones, Multi-dimensional scaling (<a target="_blank" href="https://link.springer.com/article/10.1007/BF02288916">MDS</a> ) is used to estimate the microphone geometry.
+				</p>					
+			</div>			
+		</section>
+		
+		<section id="illustration">
+			<h1>Illustration</h1>
+			<h3>Signal decomposition</h3>
+			<div align=center>
+				<figure>
+					<img width="30%" height="30%" src="selfLocalizationPlots/micSpectrogram.png" alt="mic signal spectrogram">
+					<img width="30%" height="30%" src="selfLocalizationPlots/earlySpectrogram.png" alt="early signal spectrogram">					
+					<img width="30%" height="30%" src="selfLocalizationPlots/lateSpectrogram.png" alt="late signal spectrogram">					
+					<figcaption>Spectrograms of microphone signal, estimated early and late components</figcaption>
+				</figure>				
+			</div>													
+		</section>
+		
+		<section id="RealDataAndSRPPHAT">
+			<h2>Real data experiments</h2>
+			<h3>Lab recording example</h3>
+			<div align=center>
+				<img width="30%" height="30%" src="selfLocalizationPlots/reverbMicPosEst.png" alt="Original and Estimated geometry">			
+				<img width="30%" height="30%" src="selfLocalizationPlots/reverbEstSRP.png" alt="SRP PHAT response: estimated geometry">			
+				<img width="30%" height="30%" src="selfLocalizationPlots/reverbKnSRP.png" alt="SRP PHAT response: original geometry">				
+				<p>The synthetic meeting recording has a conversation between three participants. Spatial response using estimated microphone geometry 
+				is noisy compared to that obtained using the original geometry. However, the locations of peaks are in agreement.</p>				
+			</div>						
+			<h3>AMI meeting corpus example <a target="_blank" href="http://groups.inf.ed.ac.uk/ami/download/">[link]</a> </h3>
+			<div align=center>
+				<img width="30%" height="30%"  src="selfLocalizationPlots/locationEstimationAMI.png" alt="Original and Estimated geometry">			
+				<img width="30%" height="30%"  src="selfLocalizationPlots/estimatedConfigurationAMI_SRPPhat.png" alt="SRP PHAT response: estimated geometry">			
+				<img width="30%" height="30%"  src="selfLocalizationPlots/originalConfigurationAMI_SRPPhat.png" alt="SRP PHAT response: original geometry">				
+				<p>The meeting recording has a conversation between four participants in a conference room at Edinburgh (ES2016a). 
+				The response shows the speaker activity as a function of time. Spatial response using estimated microphone geometry 
+				closely matches that obtained using the original geometry</p>				
+			</div>
+			<div align=center>
+				<h4>Framewise geometry estimation</h4>
+				<p>The distance estimates obtained in each frame are used to estimate the geometry of microphones. The geometry 
+				estimates from each frame are rotated such that the origin is at the geometric center, first microphone is 
+				along the \(x\)-axis and the second microphone is in the positive \(x-y\) plane. Animation below shows the geometry 
+				estimates for each frame. (Shown in red is the original microphone geometry) </p>								
+				<video controls>
+					<source src="selfLocalizationPlots/AMI_FLE.webm" type="video/webm">
+					Your browser does not support mp4 files				
+				</video>			
+			</div>		
+		</section>
+		<br>
+	</section>
+
+	<section>
+	<h3>Implementation</h3>
+	<p>
+		<a href="selfLocalizationPlots/estimateGeometry.p" target="_blank" class="button"><i class="fa fa-download"></i>Download Code</a>
+		This is a MATLAB .p file implementation of the geometry estimation algorithm. The syntax for using the file is given below.		
+		<pre><code>
+			%%
+			% Syntax [M debugInfo]=estimateGeometry(micSignals,samplingRate,speedOfSound,nDim,LPOrder)
+			% Inputs:
+			%       micSignals: NxM array for signals of M mics, each N sample length
+			%       speedOfSound: sound speed in m/s
+			%       samplingRate: samplingRate in Hz
+			%       nDim: Dimension of the embedding space
+			%       LPOrder (optional): 
+			%           Default values
+			%                   M=8 => L=8
+			%                   M=2 => L=32
+			%                   others => L=16
+			%
+			% Outputs:
+			%       M: Estimated microphone positions
+			%       debugInfo: A structure with fields
+			%                  debugInfo.early-early part spectrogram
+			%                  debugInfo.late-late part spectrogram
+			%                  debugInfo.distanceMatrix-pairwise microphone distance matrix
+			%
+		
+		</code></pre>			
+	</p>	
+	</section>
+
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="copyright">
+               <li>&copy; Copyright 2016 Srikanth</li>
+               <li>Template adapted from <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>   
+            </ul>
+         </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+      </div>
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/galleryinit.js"></script>
+
+</body>
+
+</html>
