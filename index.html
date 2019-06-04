@@ -174,6 +174,24 @@
 
           	   	<div class="columns publications-item">
 				<div class="item-wrap">
+					Srikanth Raj Chetupalli, and T. V. Sreenivas,
+                    <a href="#conference-13">
+					‘‘Clean speech AE-DNN PSD constraint for MCLP based reverberant speech enhancement,’’
+					</a> accepted for presentation at European Signal Processing Conference (EUSIPCO), Coruna, Spain, 2-6 Sep, 2019.                       
+				</div>
+				</div> <!-- item end -->
+
+          	   	<div class="columns publications-item">
+				<div class="item-wrap">
+					Srikanth Raj Chetupalli, Anirban Bhowmick, and T. V. Sreenivas,
+                    <a href="#conference-12">
+					‘‘Ad-hoc mobile array based audio segmentation using latent variable stochastic model,’’
+					</a> National conference on communications (NCC), Bangalore, India, 20-23 Feb, 2019.                       
+				</div>
+				</div> <!-- item end -->
+
+          	   	<div class="columns publications-item">
+				<div class="item-wrap">
 					Srikanth Raj Chetupalli, T. V. Sreenivas, and Anand Gopalakrishnan,
                     <a href="#conference-11">
 					‘‘Comparison of low-dimension speech segment embeddings: Application to speaker diarization,’’
@@ -283,7 +301,7 @@
 
 		      <div class="description-box">
 			      <h4>Late Reverberation Cancellation Using Bayesian Estimation of Multi-Channel Linear Predictors and Student's t-Source Prior</h4>
-			      <p>Abstract: Multi-channel linear prediction (MCLP) can model the late reverberation in the short-time Fourier transform 						domain using a delayed linear predictor and the prediction residual is taken as the desired early reflection component. 					Traditionally, a Gaussian source model with time-dependent precision (inverse of variance) is considered for the 						desired signal. In this paper, we propose a Student's t-distribution model for the desired signal, which is realized as 					a Gaussian source with a Gamma distributed precision. Further, since the choice of a proper MCLP order is critical, we 						also incorporate a Gaussian distribution prior for the prediction coefficients and a higher order. We consider a batch 						estimation scenario and develop variational Bayes expectation maximization (VBEM) algorithm for joint posterior 					inference and hyper-parameter estimation. This has lead to more accurate and robust estimation of the late reverb 						component and hence its cancellation, benefitting the desired residual signal estimation. Along with these stochastic 						models, we formulate single channel output (MISO) and multi channel output (MIMO) schemes using shared priors for the 						desired signal precision and the estimated MCLP coefficients at each microphone. Experiments using real room impulse 						responses show improved late reverberation suppression with the proposed VBEM approach over the traditional methods, 						for different room conditions. Additionally, we achieve a sparse coefficient vector for the MCLP avoiding the 						criticality of manually choosing the model order. The MIMO formulation is easily extended to include spatial filtering 						of the enhanced signals, which further improves the estimation of the desired signal.</p>
+			      <p>Abstract: Multi-channel linear prediction (MCLP) can model the late reverberation in the short-time Fourier transform domain using a delayed linear predictor and the prediction residual is taken as the desired early reflection component. Traditionally, a Gaussian source model with time-dependent precision (inverse of variance) is considered for the desired signal. In this paper, we propose a Student's t-distribution model for the desired signal, which is realized as a Gaussian source with a Gamma distributed precision. Further, since the choice of a proper MCLP order is critical, we also incorporate a Gaussian distribution prior for the prediction coefficients and a higher order. We consider a batch estimation scenario and develop variational Bayes expectation maximization (VBEM) algorithm for joint posterior inference and hyper-parameter estimation. This has lead to more accurate and robust estimation of the late reverb component and hence its cancellation, benefitting the desired residual signal estimation. Along with these stochastic models, we formulate single channel output (MISO) and multi channel output (MIMO) schemes using shared priors for the desired signal precision and the estimated MCLP coefficients at each microphone. Experiments using real room impulse responses show improved late reverberation suppression with the proposed VBEM approach over the traditional methods, for different room conditions. Additionally, we achieve a sparse coefficient vector for the MCLP avoiding the criticality of manually choosing the model order. The MIMO formulation is easily extended to include spatial filtering of the enhanced signals, which further improves the estimation of the desired signal.</p>
 		      </div>
 
             <div class="link-box">
@@ -291,7 +309,52 @@
 		         <a href="bayesian_lp.html" target="_blank">&nbsp&nbspResources</a><a class="popup-modal-dismiss">Close</a>
             </div>
 
-	      </div><!-- letters-01 End -->	      	      
+	      </div><!-- journal-01 End -->	      	      
+
+         <div id="conference-13" class="popup-modal mfp-hide">
+
+		      <img class="scale-with-grid" src="content/iisclogo.jpg" alt="" />
+
+		      <div class="description-box">
+			      <h4>Clean speech AE-DNN PSD constraint for MCLP based reverberant speech enhancement</h4>
+			      <p>Abstract: Blind inverse filtering using multi-channel linear prediction (MCLP) in short-time Fourier transform (STFT) domain is an effective means to 						enhance reverberant speech. Traditionally, a speech power spectral density (PSD) weighted prediction error (WPE) minimization approach is used to 						estimate the prediction filters, independently in each frequency bin. The method is sensitive to the estimation of desired signal PSD. In this paper, we 						propose an auto-encoder (AE) deep neural network (DNN) based constraint for the estimation of desired signal PSD. An auto encoder trained on clean 						speech STFT coefficients is used as the prior to non-linearly map the natural speech PSD. We explore two different architectures for the auto-encoder: 						(i) fully-connected (FC) feed-forward, and (ii) recurrent long short-term memory (LSTM) architecture. Experiments using real room impulse responses show 						that the LSTM-DNN based PSD estimate performs better than the traditional methods for reverberant signal enhancement.</p>
+		      </div>
+
+            <div class="link-box">
+            	<a href="https://arxiv.org/abs/1812.01346" target="_blank"> Know more </a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- conference-12 End -->	  
+
+         <div id="conference-12" class="popup-modal mfp-hide">
+
+		      <img class="scale-with-grid" src="content/iisclogo.jpg" alt="" />
+
+		      <div class="description-box">
+			      <h4>Ad-hoc mobile array based audio segmentation using latent variable stochastic model</h4>
+			      <p>Abstract: Segmentation/diarization of audio recordings using a network of ad-hoc mobile arrays and the spatial information gathered is a part of 						acoustic scene analysis. Because of deploying ad-hoc mobile devices, synchronous recording is assumed only at each array node and a gross feature level 					synchrony across different nodes of the network. We compute spatial features at each node in a distributed manner without the overhead of signal data 						aggregation between mobile devices. The spatial features are then modeled jointly using a Dirichlet mixture model, and the posterior probabilities of 						the mixture components are used to derive the segmentation information. Experiments on real life recordings in a reverberant room using a network of 						randomly placed mobile phones has shown a diarization error rate of less than 14% even with overlapped talkers.</p>
+		      </div>
+
+            <div class="link-box">
+            	<a href="https://arxiv.org/abs/1810.13109" target="_blank"> Know more </a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- conference-12 End -->	  
+
+         <div id="conference-12" class="popup-modal mfp-hide">
+
+		      <img class="scale-with-grid" src="content/iisclogo.jpg" alt="" />
+
+		      <div class="description-box">
+			      <h4>Ad-hoc mobile array based audio segmentation using latent variable stochastic model</h4>
+			      <p>Abstract: Segmentation/diarization of audio recordings using a network of ad-hoc mobile arrays and the spatial information gathered is a part of 						acoustic scene analysis. Because of deploying ad-hoc mobile devices, synchronous recording is assumed only at each array node and a gross feature level 					synchrony across different nodes of the network. We compute spatial features at each node in a distributed manner without the overhead of signal data 						aggregation between mobile devices. The spatial features are then modeled jointly using a Dirichlet mixture model, and the posterior probabilities of 						the mixture components are used to derive the segmentation information. Experiments on real life recordings in a reverberant room using a network of 						randomly placed mobile phones has shown a diarization error rate of less than 14% even with overlapped talkers.</p>
+		      </div>
+
+            <div class="link-box">
+            	<a href="https://arxiv.org/abs/1810.13109" target="_blank"> Know more </a>
+		         <a class="popup-modal-dismiss">Close</a>
+            </div>
+	      </div><!-- conference-12 End -->	  
 
          <div id="conference-11" class="popup-modal mfp-hide">
 
