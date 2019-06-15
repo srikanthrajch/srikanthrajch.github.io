@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Srikanth Raj Chetupalli | IISc</title>
+	<meta name="description" content="">
+	<meta name="author" content="sraj" >
+	
+	<!-- No image indexing-->
+	<meta name="robots" content="noimageindex">
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/lstmMCLPLayout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+	<script language="javascript"> 
+		function toggle(elementId) {
+			if(document.getElementById('FemaleSpeech1').style.display=="block" && elementId != 'FemaleSpeech1' ){
+				document.getElementById('FemaleSpeech1').style.display="none"			
+			}
+			if(document.getElementById('FemaleSpeech2').style.display=="block" && elementId != 'FemaleSpeech2'){
+				document.getElementById('FemaleSpeech2').style.display="none"			
+			}
+			if(document.getElementById('MaleSpeech1').style.display=="block" && elementId != 'MaleSpeech1'){
+				document.getElementById('MaleSpeech1').style.display="none"			
+			}
+			if(document.getElementById('MaleSpeech2').style.display=="block" && elementId != 'MaleSpeech2'){
+				document.getElementById('MaleSpeech2').style.display="none"			
+			}									
+			var ele = document.getElementById(elementId);
+			if(ele.style.display == "block") {
+    			ele.style.display = "none";
+  			}
+			else {
+				ele.style.display = "block";
+			}
+		} 
+	</script>
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+         <ul id="nav" class="nav">
+				<li class="current"><a class="smoothscroll" href="#home">Home</a></li>                        
+            <li><a class="smoothscroll" href="#Intro">The Problem</a></li>
+            <li><a class="smoothscroll" href="#methodDescription">The Approach</a></li>
+            <li><a class="smoothscroll" href="#Illustration">Experiments</a></li>
+            <li><a href="index.html">Srikanth's Home</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+   </header> <!-- Header End -->
+
+
+	<section id="title">
+		<h2>LSTM based AE-DNN constraint for better late reverb suppression in multi-channel LP formulation</h2>
+		<h4>Srikanth Raj Chetupalli, and Thippur V. Sreenivas</h4>
+	</section>
+	<section id="Intro">  
+		<h3>The Problem</h3>
+		<div align=center><b><i>''Late reverberation suppression"</i></b></div>
+		Multi channel linear prediction for suppression of late reverberation component in a reverberant signal is 
+		considered in this paper. Late reverberation is modeled using linear prediction with a delay in short time Fourier 
+		transform (STFT) domain, and the early reflection part is obtained as the prediction residual signal (desired signal). 
+		Time-varying Gaussian source model is considered for the desired signal, which leads to a Weighted Prediction Error 
+		(WPE) minimization problem. The weights depend on the instantaneous power spectral density (PSD) estimates for the 
+		desired signal. Prediction filters and the weights are estimated iteratively in an alternative manner. Reverberant 
+		signal is used to initialize the iterations, which has poor convergence properties. To solve this, we investigate a 
+		deep neural network based estimation of the desired signal PSD.     		
+	</section>		
+	<section id="methodDescription">  
+			<h3>The Approach</h3>
+			<div class="row">
+				<div class="four columns pull-1" align="center">
+					<img src="lstmMCLP/dnnEstimatePSD" alt="DNN estimation of PSD">	
+					DNN Estimation of desired signal PSD			
+				</div>			
+				<div class="eight columns">
+					<p>
+					An auto-encoder DNN is used as the non-linear estimator of desired signal PSD. The DNN is trained on clean 
+					speech log STFT magnitudes. In each iteration of MCLP, the estimated desired signal STFT coefficients are 
+					input to the DNN to predict the desired signal PSD. The estimated PSD is then used as weights in the WPE 
+					minimization. The method uses the predictive power of DNNs to improve the performance of a traditional 
+					signal enhancement method. Fully connected (FC) and LSTM architectures are explored for the DNN, and LSTM 
+					due to its exploitation of temporal correlations is found to give better auto-encoder and also signal 
+					enhancement performance.
+					</p>				
+				</div>							
+			</div>
+   
+	</section>
+		
+	<section id="Illustration">
+		<h2>Experiments</h2>	
+		Figures below illustrate the input and output of the auto-encoder network for the clean speech 
+		(ideal desired signal PSD), reverberant signal (desired signal PSD for the first iteration) and the enhanced speech 
+		(desired signal PSD for the last iteration). The AE output PSD at convergence is close to the corresponding PSD for 
+		clean speech. 										
+		<div class="row">
+			<div class="four columns" align="center">
+				Clean Speech
+				<img src="lstmMCLP/cleanSpeech.jpg" alt="clean speech">			
+			</div>		
+			<div class="four columns" align="center">
+				Reverberant Speech
+				<img src="lstmMCLP/revSpeech.jpg" alt="clean speech">			
+			</div>					
+			<div class="four columns" align="center">
+				Enhanced Speech
+				<img src="lstmMCLP/derSpeech.jpg" alt="clean speech">			
+			</div>							
+		</div>
+		
+		<div class="row">
+			<div class="four columns" align="center">
+				LSTM-AE Output (Clean speech)
+				<img src="lstmMCLP/cleanWeights.jpg" alt="AE Output">			
+			</div>
+			<div class="four columns" align="center">
+				LSTM-AE Output (Reverb speech)
+				<img src="lstmMCLP/revWeights.jpg" alt="AE Output">			
+			</div>
+			<div class="four columns" align="center">
+				LSTM-AE Output (Enhanced speech)
+				<img src="lstmMCLP/derWeights.jpg" alt="AE Output">			
+			</div>			
+		</div>
+		<h2>Speech Examples</h2>
+		
+		<div class="row" align="center">
+			<div class="six columns" align="center"> 
+				<a href="javascript:toggle('FemaleSpeech1');"><b>Female speech (Example-1) (Click to toggle details) </b></a><br>	
+			</div>
+			<div class="six columns" align="center"> 
+				<a href="javascript:toggle('FemaleSpeech2');"><b>Female speech (Example-2) (Click to toggle details) </b></a><br>	
+			</div>								
+		</div>						
+		<div class="row" align="center">
+			<div class="six columns" align="center"> 
+				<a href="javascript:toggle('MaleSpeech1');"><b>Male speech (Example-1) (Click to toggle details) </b></a><br>	
+			</div>
+			<div class="six columns" align="center"> 
+				<a href="javascript:toggle('MaleSpeech2');"><b>Male speech (Example-2) (Click to toggle details) </b></a><br>	
+			</div>								
+		</div>						
+				
+		<div id="FemaleSpeech1" style="display: none">		
+		<div class="row" align="center">
+			Clean Speech<br>
+			<video controls>
+					<source src="lstmMCLP/combined/faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+			</video>			
+		</div>		
+		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				Reverberant Speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/rev_faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/rev_faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				LSTM-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LSTM_faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LSTM_faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				FC-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/FC_faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/FC_faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>							
+		</div>		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				WPE-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/WPE_faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/WPE_faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				CGG-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/CGG_faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/CGG_faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				AR-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LP_faem0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LP_faem0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>							
+		</div>	
+		</div>									
+		
+		<div id="FemaleSpeech2" style="display: none">		
+		<div class="row" align="center">
+			Clean Speech<br>
+			<video controls>
+					<source src="lstmMCLP/combined/fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+			</video>			
+		</div>		
+		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				Reverberant Speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/rev_fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/rev_fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				LSTM-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LSTM_fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LSTM_fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				FC-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/FC_fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/FC_fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>							
+		</div>		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				WPE-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/WPE_fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/WPE_fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				CGG-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/CGG_fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/CGG_fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				AR-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LP_fjkl0_si932.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LP_fjkl0_si932.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>				
+		</div>						
+		</div>									
+		
+		<div id="MaleSpeech1" style="display: none">
+		<div class="row" align="center">
+			Clean Speech<br>
+			<video controls>
+					<source src="lstmMCLP/combined/marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+			</video>			
+		</div>		
+		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				Reverberant Speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/rev_marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/rev_marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				LSTM-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LSTM_marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LSTM_marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				FC-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/FC_marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/FC_marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>							
+		</div>		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				WPE-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/WPE_marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/WPE_marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				CGG-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/CGG_marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/CGG_marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				AR-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LP_marc0_sa1.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LP_marc0_sa1.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>
+		</div>								
+		</div>									
+		
+		<div id="MaleSpeech2" style="display: none">		
+		<div class="row" align="center">
+			Clean Speech<br>
+			<video controls>
+					<source src="lstmMCLP/combined/mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+			</video>			
+		</div>		
+		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				Reverberant Speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/rev_mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/rev_mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				LSTM-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LSTM_mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LSTM_mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				FC-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/FC_mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/FC_mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>							
+		</div>		
+		<div class="row" align="center">
+			<div class="four columns" align="center">
+				WPE-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/WPE_mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/WPE_mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>										
+			</div>		
+			<div class="four columns" align="center">
+				CGG-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/CGG_mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/CGG_mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>			
+			<div class="four columns" align="center">
+				AR-MCLP Enhanced speech<br>
+				<video width="320" height="240" controls>
+					<source src="lstmMCLP/combined/LP_mdmt0_si572.webm" type="video/webm">
+					<source src="lstmMCLP/combined/LP_mdmt0_si572.mp4" type="video/mp4">
+					Your browser does not support mp4/webm files			
+				</video>													
+			</div>							
+		</div>									
+		</div>
+	</section>	
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="copyright">
+               <li>&copy; Copyright 2016 Srikanth</li>
+               <li>Template adapted from <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>   
+            </ul>
+         </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+      </div>
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/galleryinit.js"></script>
+
+</body>
+
+</html>
