@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Srikanth Raj Chetupalli | IISc</title>
+	<meta name="description" content="">
+	<meta name="author" content="sraj" >
+	
+	<!-- No image indexing-->
+	<meta name="robots" content="noimageindex">
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/mDiarLayout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+         <ul id="nav" class="nav">
+				<li class="current"><a class="smoothscroll" href="#home">Home</a></li>                        
+            <li><a class="smoothscroll" href="#Intro">The Problem</a></li>
+            <li><a class="smoothscroll" href="#methodDescription">The Approach</a></li>
+            <li><a class="smoothscroll" href="#Illustration">Experiments</a></li>
+            <li><a href="index.html">Srikanth's Home</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+   </header> <!-- Header End -->
+
+
+	<section id="title">
+		<h2>LATENT VARIABLE APPROACH TO DIARIZATION OF AUDIO RECORDINGS USING RANDOMLY PLACED MOBILE DEVICES</h2>
+		<h4>Srikanth Raj Chetupalli, Anirban Bhowmick and Thippur V. Sreenivas</h4>
+	</section>
+	<section id="Intro">  
+		<h3>The Problem</h3>		
+		<div class="row">
+			<div class="five columns pull-1">
+				<br><br>
+				<img src="mDiar/meetingScenario.jpg" alt="Experimental setup" width="460" height="345" class="center">
+			</div>
+			<div class="seven columns">
+				<p>Consider a meeting scenario with several participants carrying mobile devices with one or more microphones. 
+			Mobile devices placed on a table can be connected to form an ad-hoc network of microphones. We address the 
+			diarization task, i.e., "Who spoke when?" in the meeting recordings comprising of multiple sources and 
+			signals recorded in such an ad-hoc microphone array network.</p>
+			<p>Such a setup is characterized by (i) random placement and orientation of mobile devices, 
+			(ii) asynchronous recording across the mobile devices, 
+			(iii) synchronous two-channel recording at each mobile device, and 
+			(iv) variability across the devices with respect to the number, type, and arrangement of the microphones on 
+			the mobile device.</p>			
+		</div>			
+					
+		</div>
+	</section>		
+	<section id="methodDescription">  
+			<h3>The Approach</h3>
+			<div align=center>"<b><i>Compute spatial features at each mobile device separately, 
+			coarse align the feature streams across the devices 
+			and jointly model them in a stochastic formulation </i></b>"</div> 
+			<br>
+			<div class="row">
+				<div class="six columns">
+					<h6>Spatial features / Directional statistics</h6>
+						<p>Compute the spatial response, assuming the two microphones on the mobile device to 
+						be along a straight line with a known spacing. Steered response function (SRP-PHAT) approach 
+						is used to compute the spatial response at a set of discrete angles, smooth across time using 
+						recursive averaging and normalize to sum to unity. We interpret this "directional statistics" 
+						feature as a probability mass function (PMF). Directional statistics are computed independently 
+						for each mobile device.</p>
+					<h6>Coarse synchronization</h6>
+						<p>The signals across the devices can be aligned coarsely using specific acoustic events such as a clap, 
+						a tap on the table, or using network time</p>					
+				</div>			
+				<div class="six columns">
+					<h6>Stochastic modeling</h6>
+						<p>Directional statistic feature at a mobile device during a short time frame is modeled as a 
+						sample drawn from a Dirichlet distribution with source specific parameters. The features across all the 
+						mobile devices are jointly modeled using a latent variable formulation, with the latent variables selecting 
+						the hidden source. Expectation-maximization is used parameter estimation and posterior inference using 
+						maximum likelihood criterion. Diarization information is obtained from the posterior probability of the 
+						source obtained after the convergence of EM algorithm.    
+						</p>					
+				</div>	
+			</div>
+		</section>
+		
+		
+		<section id="Illustration">
+			<h2>Real data experiments</h2>				
+				<h4>Dataset</h4>					
+				<div class="row">
+					<div class="five columns" align=center>
+							<img src="mDiar/setup.jpg" alt="Experimental setup" width="460" height="345" class="center">	
+					</div>			
+					<div class="seven columns" >
+						<p>Real-life meeting recordings are used for the evaluation. Three mobile phones are placed randomly on a 
+						table inside a reverberant enclosure. Reverberation time of the enclosure is approx. \(650~ms\). 
+						Three speakers are seated around the table. The signals are recorded at \(48~KHz\) sampling rate, 
+						and down-sampled to \(16~KHz\) prior to processing. Duration of the recordings varied between \(5-10\) 
+						minutes. The recordings are manually annotated at the speaker level for the purpose of evaluation 
+						(Contact the authors to access the original recordings and the annotations).   				
+						</p>									
+					</div>								
+				</div>
+				<h4>Illustration and Results</h4>				
+				<p>Spectrogram and directional statistics for a mobile phone, and the estimated posterior speaker probability 
+				as a function of time.</p>
+				<div class="row">
+					<div class="five columns pull-1" align=center>
+						<h4>Recording 1</h4>						
+						<video controls>
+							<source src="mDiar/rec23.webm" type="video/webm">
+							<source src="mDiar/rec23.mp4" type="video/mp4">						
+							Your browser does not support mp4 files				
+						</video>								
+					</div>				
+					<div class="six columns" align=center>
+						<h4>Recording 2</h4>						
+						<video controls>
+							<source src="mDiar/rec24.webm" type="video/webm">
+							<source src="mDiar/rec24.mp4" type="video/mp4">						
+							Your browser does not support mp4 files				
+						</video>								
+					</div>						
+				</div>	
+
+				<div class="row">
+					<div class="five columns pull-1" align=center>
+						<h4>Recording 3</h4>						
+						<video controls>
+							<source src="mDiar/rec26_1.webm" type="video/webm">
+							<source src="mDiar/rec26_1.mp4" type="video/mp4">						
+							Your browser does not support mp4 files				
+						</video>								
+					</div>				
+					<div class="six columns" align=center>
+						<h4>Recording 4</h4>						
+						<video controls>
+							<source src="mDiar/rec26_2.webm" type="video/webm">
+							<source src="mDiar/rec26_2.mp4" type="video/mp4">						
+							Your browser does not support mp4 files				
+						</video>								
+					</div>						
+				</div>	
+
+				<div class="row">
+					<div class="five columns pull-1" align=center>
+						<h4>Recording 5</h4>						
+						<video controls>
+							<source src="mDiar/rec25.webm" type="video/webm">
+							<source src="mDiar/rec25.mp4" type="video/mp4">						
+							Your browser does not support mp4 files				
+						</video>								
+					</div>				
+					<div class="six columns">
+						<br><h4 align=center>DER performance</h4>
+						<br>
+						<div align=center>					
+						<style type="text/css">
+						.tg  {border-collapse:collapse;border-spacing:0;}
+						.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:white;}
+						.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:white;}
+						.tg .tg-0pky{text-align:left;vertical-align:top}
+						.tg .tg-0lax{text-align:left;vertical-align:top}
+						</style>
+						<table class="tg">
+						  <tr>
+						    <th class="tg-0pky">Meeting ID</th>
+						    <th class="tg-0pky">R1</th>
+						    <th class="tg-0pky">R2</th>
+						    <th class="tg-0pky">R3</th>
+						    <th class="tg-0lax">R4</th>
+						    <th class="tg-0lax">R5</th>
+						    <th class="tg-0pky">Avg.<br></th>
+						  </tr>
+						  <tr>
+						    <td class="tg-0lax">Proposed </td>
+						    <td class="tg-0lax">13.1</td>
+						    <td class="tg-0lax">12.5</td>
+						    <td class="tg-0lax">20.9</td>
+						    <td class="tg-0lax">14.0</td>
+						    <td class="tg-0lax">6.5</td>
+						    <td class="tg-0lax">13.4</td>
+						  </tr>
+						  <tr>
+						    <td class="tg-0lax">Oracle</td>
+						    <td class="tg-0lax">11.3</td>
+						    <td class="tg-0lax">10.8</td>
+						    <td class="tg-0lax">20.5</td>
+						    <td class="tg-0lax">13.7</td>
+						    <td class="tg-0lax">5.6</td>
+						    <td class="tg-0lax">12.4</td>
+						  </tr>
+						</table>					
+						</div>
+						<br>
+						<p>Oracle performance is obtained from ground truth labels by assigning previous segment speaker label 
+						during segments with overlap of multiple speakers. DER is with-in 2% for all the five recordings, 
+						and average DER is less than 14%</p>									
+					</div>						
+				</div>					
+		</section>	
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="copyright">
+               <li>&copy; Copyright 2016 Srikanth</li>
+               <li>Template adapted from <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>   
+            </ul>
+         </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+      </div>
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/galleryinit.js"></script>
+
+</body>
+
+</html>
