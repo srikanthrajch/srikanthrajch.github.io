@@ -1,0 +1,67 @@
+/*Gallery Environment*/
+#audioplayer {
+   background: #1F1F1F no-repeat center center;
+   background-size: cover !important;
+	-webkit-background-size: cover !important;
+   background-attachment: fixed;
+   position: relative;
+   min-height: 80vh;
+   width: 100%;      
+   overflow: hidden;
+}
+#audioplayer .text-container {
+   padding-top: 32px;
+   padding-bottom: 32px;
+}
+#audioplayer h1 {
+   font: 18px/24px 'opensans-bold', sans-serif;   
+   text-transform: uppercase;
+   letter-spacing: 3px;
+   color: #FFF;
+}
+#audioplayer h1 span { display: block; }
+#audioplayer .header-col { padding-top: 9px; }
+#audioplayer .header-col h1:before {
+   font-family: 'FontAwesome';
+	padding-right: 10px;
+	font-size: 72px;
+   line-height: 72px;
+   text-align: left;
+   float: left;
+   color: #fff;
+}
+
+.player { 
+   background: #FFF no-repeat center center;
+   background-size: cover !important;
+	-webkit-background-size: cover !important;
+   background-attachment: fixed;
+   position: relative;
+   width: 100%;      
+   border-radius: 20px;
+   overflow: hidden;
+}
+audio { margin:0 15px 0 14px; width: 100%;}
+.playercontainer { background-color:#1F1F1F; margin:0 auto;margin-bottom:50px;overflow:auto;}
+
+.playlistcontainer { margin:0 auto; }
+.playlistcontainer ul {list-style-type:none;max-height: 400px;overflow-y: auto;}
+.playlistcontainer li { background-color:#1F1F1F; cursor:pointer; margin:0; padding:10px 10px; color: #F06000}
+.playlistcontainer li:hover { background-color:#000000;}
+.playitem { position:relative; }
+.playtitle { margin-left:50px;text-align:left; }
+.playlength { text-align:right;margin-right:60px }
+
+/*.playselect,.playselect:hover { background-color:#262223!important; cursor:default!important; }*/
+
+.revfwd {
+	margin:0 5px 0 14px;
+	cursor: pointer;
+	position: relative;
+}
+
+a[id^="btn"] { background-color:#231F20;  cursor:pointer; font-size:30px; margin:0; padding:0px 5px; text-decoration:none; }
+a[id^="btn"]:last-child { margin-left:-4px; }
+a[id^="btn"]:hover,a[id^="btn"]:active { background-color:#7A7A7A; color: #525252}
+a[id^="btn"]::-moz-focus-inner { border:0; padding:0; }
+a {color: #FFF}

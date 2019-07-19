@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Srikanth Raj Chetupalli | IISc</title>
+	<meta name="description" content="">
+	<meta name="author" content="sraj" >
+	
+	<!-- No image indexing-->
+	<meta name="robots" content="noimageindex">
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/lstmMCLPLayout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>	
+		
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
+</head>
+
+<body>
+
+   <!-- Header
+   ================================================== -->
+   <header id="home">
+      <nav id="nav-wrap">
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+         <ul id="nav" class="nav">
+				<li class="current"><a class="smoothscroll" href="#home">Home</a></li>                        
+            <li><a class="smoothscroll" href="#Intro">Summary</a></li>
+            <li><a class="smoothscroll" href="#Illustration">Experiments</a></li>
+            <li><a href="index.html">Srikanth's Home</a></li>
+         </ul> <!-- end #nav -->
+      </nav> <!-- end #nav-wrap -->
+   </header> <!-- Header End -->
+
+
+	<section id="title">
+		<h2>Speech dereverberation and interference suppression for dynamic sources using joint spatial filtering and multi-channel time-varying linear prediction</h2>
+		<h4>Srikanth Raj Chetupalli, and Thippur V. Sreenivas</h4>
+	</section>
+	<section id="Intro">  
+		<h3>Problem summary</h3>
+		<div align=center><b><i>''Speech dereverberation in dynamic scenarios"</i></b></div>
+		<p>Enhancement of reverberant speech is a challenging problem, especially for scenarios with multiple 
+		simultaneous sources and moving sources. Multi channel linear prediction is often used for late reverberation 
+		cancellation, and the prediction residual is taken as the desired signal. Though the method works in practice with 
+		multiple sources also, the source selectivity is absent in the formulation. Spatial filters have better spatial 
+		selectivity, but the performance depends on the number of microphones, and the reverberation component in the 
+		direction of the source can not be suppressed.  A cascade of MCLP followed by spatial filtering is also explored in 
+		the literature. In this work, we consider joint MCLP filtering and spatial filtering. We consider both stationary and 
+		dynamic source scenarios. In the stationary case, we consider batch estimation using a distortion-less response constrained 
+		maximum likelihood estimation. The solution involves solving MCLP and spatial filtering problems, and source RTF estimation 
+		in each iteration of the algorithm. A linear dynamical system model is considered for the time variation of the MCLP 
+		prediction coefficients. The method is combined with online spatial filtering. The spatial filtered signal is used for estimating 			the desired signal PSD, required for the computation of MCLP filters. Better performance compared to the methods in literature is 			obtained. Further, the method provides for spatial selectivity, which is used for desired source extraction in multi source scenarios. </p>
+	</section>			
+		
+	<section id="Illustration">
+		<h2>Speech Examples</h2>(Links below open in a separate window)
+		
+		<h4>Stationary source</h4>
+		<div class="row" align="center">
+			<div class="six columns" align="center"> 
+				<a href="dMCLP/dsNoInt.html" target="_blank"><b>Single source </b></a><br>	
+			</div>
+			<div class="six columns" align="center"> 
+				<a href="dMCLP/dsInt.html" target="_blank"><b>Two sources, stationary </b></a><br>	
+			</div>								
+		</div>
+		<h4>Dynamic source</h4>		
+		<div class="row" align="center">
+			<div class="four columns" align="center"> 
+				<a href="dMCLP/dSPC.html" target="_blank"><b>Single source, position change </b></a><br>	
+			</div>
+			<div class="four columns" align="center"> 
+				<a href="dMCLP/dOnline.html" target="_blank"><b>Single moving source</b></a><br>	
+			</div>					
+			<div class="four columns" align="center"> 
+				<a href="dMCLP/dTSS.html" target="_blank"><b>Two sources, stationary </b></a><br>	
+			</div>								
+		</div>											
+		<br>		
+	</section>	
+
+   <!-- footer
+   ================================================== -->
+   <footer>
+      <div class="row">
+         <div class="twelve columns">
+            <ul class="copyright">
+               <li>&copy; Copyright 2016 Srikanth</li>
+               <li>Template adapted from <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>   
+            </ul>
+         </div>
+         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+      </div>
+   </footer> <!-- Footer End-->
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/galleryinit.js"></script>
+
+</body>
+
+</html>
